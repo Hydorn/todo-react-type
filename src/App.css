@@ -1,0 +1,118 @@
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.todo-container h1 {
+  text-transform: uppercase;
+}
+
+.todo-add {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+  height: 40px;
+  width: 50%;
+}
+.todo-input {
+  flex: 1;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 0 10px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+.add-button {
+  cursor: pointer;
+  height: 100%;
+  aspect-ratio: 1;
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: rgb(253, 154, 74);
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  transform: translateX(-100%);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: all 0.2s linear;
+}
+.add-button:hover{
+  opacity: 0.8;
+  font-size: 30px;
+}
+.add-button:active{
+  opacity:1;
+}
+.lists-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 30px;
+  width: 60%;
+  min-height: 70vh;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 10px;
+}
+.lists-wrapper .panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.panel .list {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.list-item {
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  min-height: 50px;
+  padding: 0 20px;
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.2);
+  align-items: center;
+}
+
+.todo .list-item {
+  background-color:  rgb(253, 154, 74);
+  animation: add 0.2s ease-in-out;
+  border-radius: 5px;
+
+}
+.done .list-item {
+  background-color: rgba(0, 255, 72, 0.74);
+  animation: add 0.2s ease-in-out;
+  border-radius: 5px;
+}
+.checkbox:checked{
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .lists-wrapper {
+    flex-direction: column;
+  }
+  .list-item {
+    min-height: 60px;
+  }
+}
+
+@keyframes add{
+  0%{scale:0}
+  100%{scale: 1;}
+}
+@keyframes addMinus{
+  0%{transform: translateX(-200%);}
+  100%{transform: translateX(0%);}
+}
