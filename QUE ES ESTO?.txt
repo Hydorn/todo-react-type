@@ -1,8 +1,0 @@
-Este es el proyecto de un ToDo list, esa listita que apretas un item y te lo marca como listo.
-Este proyecto tiene comentarios para orientarte. Asi que no tengas miedo, yo te doy una mano.
-Está casi todo hecho, menos la funcionalidad. Osea que no tenes que preocuparte por estilos, maquetado, nada de eso (por ahora).
-
-Cualquier cosa que quieras agregarle, modificarle, borrarle está en vos. Este es tu patio de juegos (?
-Y bueno, no está demas decir que si te trabaste o no entendiste algo, me avises que no tengo ningun problema!
-
-Suerte y a divertirse rompiendo jajaj (que ya los chistes de parciales y notas, se terminaron)
