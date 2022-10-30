@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { text } from "stream/consumers";
 import { JsxAttribute } from "typescript";
 import "./App.css";
@@ -16,9 +16,21 @@ const LISTA: ItemProps[] = [];
 
 
 const App = () => {
+  let Now = new Date();
+  const DATE = {
+    hours: Now.getHours(),
+    minutes: Now.getMinutes(),
+    seconds: Now.getSeconds()
+  }
 
+  const [count, setCount] = useState(`${DATE.hours}:${DATE.minutes}:${DATE.seconds<10?"0"+DATE.seconds:DATE.seconds}`);
   const [itemList, setItemList] = useState<ItemProps[]>(LISTA);
-
+  useEffect(()=>{
+    document.title = `La hora es ${count}`;
+  })
+  useEffect(()=>{
+    setTimeout(()=>{setCount(`${DATE.hours}:${DATE.minutes}:${DATE.seconds<10?"0"+DATE.seconds:DATE.seconds}`)},1000);
+  })
   const handleOnChangeItem = (index: number, value: boolean) => {
     itemList[index].done=value;
     setItemList([...itemList]);
@@ -49,17 +61,22 @@ const App = () => {
     <div className="todo-container">
       <h1>Lista de quehaceres</h1>
       <TodoAdd onAdd={handleOnAddItem} />
+      <p>{`La hora es ${count}`}</p>
       <div className="lists-wrapper">
         <div className="panel todo">
           <h2>Por hacer:</h2>
           <div className="list">
-          {mapDone(itemList, false)}
+          {
+          mapDone(itemList, false)
+          }
           </div>
         </div>
         <div className="panel done">
           <h2>Listo:</h2>
           <div className="list">
-            {mapDone(itemList, true)}
+            {
+            mapDone(itemList, true)
+            }
           </div>
         </div>
       </div>
